@@ -1,47 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
-// Navigation will be the navbar that appears on each page
+function Nav() {
+  const [value, setValue] = React.useState("one");
 
-function Nav({ currentPage, handlePageChange }) {
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
-  const [expandNavbar, setExpandNavbar] = useState(false);
-
-
-  useEffect(() => {
-    setExpandNavbar(false);
-  }, [currentPage])
   return (
-    <div className="navbar" id={expandNavbar ? "open" : "close"}>
-    <div className="mobileNav">
-      <p
-      className="toggleButton"
-        onClick={() => {
-          setExpandNavbar((prev) => !prev);
-        }}
+    <Box
+      sx={{
+        width: "20%",
+        height: "50vh",
+        marginTop: "30vh",
+        marginBottom: "15vh",
+      }}
+    >
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        textColor="secondary"
+        orientation="vertical"
+        indicatorColor="secondary"
+        aria-label="secondary tabs example"
       >
-      </p>
-    </div>
-      <div className="links">
-        <a
-          href="#about"
-          onClick={() => handlePageChange("About")}
-          // Check to see if the currentPage is `About`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === "About" ? "navbar a" : "navbar"}
-        >
-          about
-        </a>
-
-        <a
-          href="#portfolio"
-          onClick={() => handlePageChange("Portfolio")}
-          // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
-          className={currentPage === "Portfolio" ? "navbar a" : "navbar"}
-        >
-          portfolio
-        </a>
-
-      </div>
-    </div>
+        <Tab value="one" label="About" href="#about"/>
+        <Tab value="two" label="Paintings" href="#paintings" />
+        <Tab value="three" label="Illustration" href="#illustration" />
+      </Tabs>
+    </Box>
   );
 }
 
