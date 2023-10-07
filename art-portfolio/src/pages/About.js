@@ -1,7 +1,14 @@
+import { Box, Container } from '@mui/material';
 import React from 'react'
 
-export const About = () => {
+const About = () => {
   return (
-    <div>About</div>
+    <Box sx={{width: "80%", height: "100%"}}>
+      <Container sx={{ width: "100%", height: "100%", marginLeft: "40vh"}}>
+      <h3>Hi we out here testing shit</h3>
+      </Container>
+    </Box>
   )
 }
+
+export default About;
