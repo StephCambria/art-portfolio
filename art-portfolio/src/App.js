@@ -7,8 +7,9 @@ import Navigation from "./components/Nav";
 // About || Home
 import About from "./pages/About";
 //
-import Portfolio from "./pages/Portfolio";
-
+import Paintings from "./pages/Paintings";
+//
+import Illustration from "./pages/Illustration";
 // Footer
 import Footer from "./components/Footer";
 
@@ -21,8 +22,11 @@ function App() {
     if (currentPage === "About") {
       return <About />;
     }
-    if (currentPage === "Portfolio") {
-      return <Portfolio />;
+    if (currentPage === "Paintings") {
+      return <Paintings />;
+    }
+    if (currentPage === "Illustration") {
+      return <Illustration />;
     }
 }
 
